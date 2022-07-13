@@ -1,7 +1,9 @@
 import './App.css';
+import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 import { BsTrash, BsBookmarkCheck } from "react-icons/bs";
 import { BsBookmarkCheckFill } from 'react-icons/bs';
+
 const API = "http://localhost:5000"
   
 function App() {
@@ -10,7 +12,7 @@ function App() {
   const [time, setTime] = useState("");
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  
   useEffect(() => {
     const loadData = async() => {
       setLoading(true)
@@ -88,7 +90,7 @@ function App() {
   return (
     <div className="App">
       <div className='todo-header'>
-        <h1>ReactJS Todo</h1>
+        <h1>React To Do</h1>
       </div>
       <div className='form-todo'>
         <h2>Insira sua Tarefa:</h2>
@@ -103,32 +105,39 @@ function App() {
           </div>
           <div className='form-control'>
             <label htmlFor='time'>Duração: </label>
-            <input type="text" name="time" placeholder="Tempo estimado (em horas)"
+            <input type="number" name="time" placeholder="Tempo estimado (em horas)"
             onChange={(e) => setTime(e.target.value)}
             value={time || ""}
             required
           />
           </div>
-          <input type="submit" value="Criar Tarefa" />
+          
+          <div className='btn'>
+            <input type="submit" value="Criar Tarefa" />
+          </div>
         </form>
       </div>
       <div className='list-todo'>
         <h2>Lista de Tarefas:</h2>
+
         {todos.length === 0 && <p>Não há tarefas!!</p>}
         {todos.map((todo) => (
           <div className="todo" key={todo.id}>
-            <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
-            <p>Duração: {todo.time}</p>
+            <div className='nomeDuracao'>
+              <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
+              <p>Duração: {todo.time} horas</p>
+            </div>
             <div className='actions'>
               <span onClick={() => handleEdit(todo)}>
                 {!todo.done ? <BsBookmarkCheck/> : <BsBookmarkCheckFill />}
               </span>
-              <BsTrash onClick={() => handleDelete(todo.id)}/>
+              <BsTrash onClick={() => handleDelete(todo.id)}/> 
             </div>
           </div>
         ))}
-
       </div>
+
+      <Footer />
 
     </div>
   );
