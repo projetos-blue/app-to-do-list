@@ -68,11 +68,6 @@ input[type="submit"]:hover {
     background-color: #840202;
 }
 
-/* .list-todo {
-    padding: 0 1em 2em;
-    margin: 1em 2em;
-} */
-
 .todo {
     margin: auto;
     margin-top: 22px;
@@ -91,11 +86,11 @@ input[type="submit"]:hover {
     display: block;
 }
 
-.list-todo{
+.list-todo {
     margin-top: 20px;
 }
 
-.list-todo h2{
+.list-todo h2 {
     margin-bottom: 0;
 }
 
@@ -135,12 +130,16 @@ input[type="submit"]:hover {
 }
 
 .container {
+    padding-top: 1rem;
     margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .copy {
     color: white;
-    padding-top: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -148,7 +147,10 @@ input[type="submit"]:hover {
 }
 
 .textFooter {
-    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    white-space: nowrap;
 }
 
 .logoFooter {
