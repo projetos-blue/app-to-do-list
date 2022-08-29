@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { BsTrash, BsBookmarkCheck } from "react-icons/bs";
 import { BsBookmarkCheckFill } from 'react-icons/bs';
 
-const API = "http://localhost:5000"
+const API = "../db.json";
   
 function App() {
 
