@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { BsTrash, BsBookmarkCheck } from "react-icons/bs";
 import { BsBookmarkCheckFill } from 'react-icons/bs';
 
-const API = "../db.json";
+const API = "https://my-json-server.typicode.com/rafmob/app-to-do-list";
   
 function App() {
 
